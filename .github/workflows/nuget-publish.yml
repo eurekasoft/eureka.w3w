@@ -1,0 +1,37 @@
+name: Publish Prebuilt NuGet Packages
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    env:
+      GITHUB_ACTOR: ${{ github.actor }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # ensures tags are fetched
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: List built packages
+      run: dir Builds
+
+    - name: Push .nupkg files
+      shell: pwsh
+      run: |
+        nuget sources add -name github -source "https://nuget.pkg.github.com/eurekasoft/index.json" -Username $env:GITHUB_ACTOR -Password $env:GITHUB_TOKEN -StorePasswordInClearText
+
+        $packages = Get-ChildItem -Path Builds -Filter *.nupkg
+
+        foreach ($pkg in $packages) {
+          Write-Host "Pushing package $($pkg.FullName)"
+          nuget push $pkg.FullName -Source github -SkipDuplicate
+        }

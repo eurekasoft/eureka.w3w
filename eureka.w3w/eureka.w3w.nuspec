@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>eureka.w3w</id>
+    <version>1.0.0</version> <!-- Can be overridden during build -->
+    <authors>Eureka Information Systems Ltd.</authors>
+    <owners>Eureka Information Systems Ltd.</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package contains the eureka.w3w library for What3Words API integration.</description>
+    <tags>what3words api integration utility</tags>
+
+    <dependencies>
+      <dependency id="Microsoft.Bcl.AsyncInterfaces" version="8.0.0" />
+      <dependency id="RestSharp" version="112.1.0" />
+      <dependency id="System.Buffers" version="4.5.1" />
+      <dependency id="System.Memory" version="4.5.5" />
+      <dependency id="System.Numerics.Vectors" version="4.5.0" />
+      <dependency id="System.Runtime.CompilerServices.Unsafe" version="6.0.0" />
+      <dependency id="System.Text.Encodings.Web" version="8.0.0" />
+      <dependency id="System.Text.Json" version="8.0.4" />
+      <dependency id="System.Threading.Tasks.Extensions" version="4.5.4" />
+      <dependency id="System.ValueTuple" version="4.5.0" />
+    </dependencies>
+
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="net472" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework="net472" />
+      <frameworkAssembly assemblyName="System.Numerics" targetFramework="net472" />
+      <frameworkAssembly assemblyName="System.Web" targetFramework="net472" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="net472" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="net472" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="net472" />
+      <frameworkAssembly assemblyName="System.Data.DataSetExtensions" targetFramework="net472" />
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework="net472" />
+    </frameworkAssemblies>
+  </metadata>
+
+  <files>
+    <file src="bin\Release\eureka.w3w.dll" target="lib\net472" />
+    <file src="bin\Release\eureka.w3w.xml" target="lib\net472" />
+    
+    <file src="bin\Release\eureka.w3w.models.dll" target="lib\net472" />
+    <file src="bin\Release\eureka.w3w.models.xml" target="lib\net472" />
+  </files>
+</package>
